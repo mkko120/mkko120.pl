@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Image from 'next/image'
+import Head from 'next/head'
 import me from '../public/me.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -14,6 +15,25 @@ import {
 import { Suspense } from 'react'
 const Home: NextPage = () => {
     return (            
+        <>
+
+        <Head>
+            <title>mkko120's portfolio</title>
+            <meta property="og:url" content="https://mkko120.pl" />
+            <meta property="og:type" content="website" />
+            <meta
+            property="og:title"
+            content="mkko120's portfolio"
+            />
+            <meta name="twitter:card" content="summary" />
+            <meta
+            property="og:description"
+            content="Hi, im mkko120 and I am a Javascript and Java developer! Check out my stuff..."
+            />
+            <meta property="og:image" content="" />Ŕ
+      </Head>
+
+
         <div className='h-screen w-screen bg-gray-800 text-white flex overflow-hidden'>
                 <div className='text-center m-auto min-h-[50vh]'>
                     <div className='flex justify-around items-end space-x-8'>
@@ -50,6 +70,8 @@ const Home: NextPage = () => {
                     </div>
                 </div>
             </div>
+
+            </>
         )
     }
     
