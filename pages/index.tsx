@@ -1,4 +1,6 @@
 import type { NextPage } from 'next'
+import Image from 'next/image'
+import me from '../public/me.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faSquareEnvelope,
@@ -15,23 +17,23 @@ const Home: NextPage = () => {
         <div className='h-screen w-screen bg-gray-800 text-white flex overflow-hidden'>
                 <div className='text-center m-auto min-h-[50vh]'>
                     <div className='flex justify-around items-end space-x-8'>
-                        <a href='#'>
+                        <a href='https://github.com/mkko120'>
                             <FontAwesomeIcon className='pb-11' icon={faGithubSquare} size="2xl"/>
                         </a>
-                        <a href='#'>
+                        <a href='https://gitlab.com/mkko120'>
                             <FontAwesomeIcon className='pb-11' icon={faGitlabSquare} size="2xl" />
                         </a>
                         <div className='flex flex-col justify-between'>
-                            <img className="m-auto h-80 w-80 bg-gray-600 clip-circle" src="https://s3.avatarapi.com/7b18eb6f263b1efb30f1dbb7f7c9a7accdebfbd710cc45d922d0c0dd48746876.gif"></img>
+                            <Image className="m-auto h-80 w-80 bg-gray-600 clip-circle" src={me} alt="my picture" />
                             <span className='text-5xl text-center m-auto pt-3'>Mikołaj Ratajczak</span>
                             <span className='text-xl text-center m-auto pt-3'>(mkko120)</span>
                         </div>
 
-                        <a href="#">
+                        <a href="https://fiverr.com/mkko120">
                             <FontAwesomeIcon className='pb-11' icon={faShop} size='2xl' />
                         </a>
 
-                        <a href="#">
+                        <a href="mailto://contact@mkko120.pl">
                             <FontAwesomeIcon className='pb-11' icon={faSquareEnvelope} size="2xl" />
                         </a>
                         
