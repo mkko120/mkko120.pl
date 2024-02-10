@@ -36,9 +36,9 @@ export default function Home() {
             image: "/minecraft.jpg",
             children: (
                 <>
-                    <p>As a Minecraft developer and server administrator, I'm passionate about enhancing gameplay experiences by creating custom features, mini-games, and utilities within the Minecraft universe.</p>
+                    <p>As a Minecraft developer and server administrator, I&apos;m passionate about enhancing gameplay experiences by creating custom features, mini-games, and utilities within the Minecraft universe.</p>
                     <p>As a server administrator, I ensure optimal server performance, manage player communities, and troubleshoot technical issues to maintain a seamless gaming environment.</p>
-                    <p>From crafting unique worlds to fine-tuning server configurations, I'm dedicated to delivering top-notch experiences for Minecraft enthusiasts.</p>
+                    <p>From crafting unique worlds to fine-tuning server configurations, I&apos;m dedicated to delivering top-notch experiences for Minecraft enthusiasts.</p>
                 </>
             )
         }
