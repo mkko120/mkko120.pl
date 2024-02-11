@@ -8,6 +8,10 @@ const font = Krona_One({
     weight: ["400"]
 })
 
+export const metadata = {
+    title: "about"
+}
+
 
 export default function Page() {
     return (

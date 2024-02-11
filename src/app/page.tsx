@@ -4,6 +4,11 @@ import Link from "next/link";
 import web from "@/../public/web.jpg";
 import sys from "@/../public/computer.jpg";
 import mcs from "@/../public/minecraft.jpg";
+import {Metadata} from "next";
+
+export const metadata: Metadata = {
+    title: "home | mkko120"
+}
 
 export default function Home() {
     
