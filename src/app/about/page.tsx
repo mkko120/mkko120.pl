@@ -20,7 +20,7 @@ export default function Page() {
                 <div>
                     <h1 className={cn(font.className, "font-bold text-4xl")}>hello!</h1>
                     <p>i&apos;m mikołaj, also known as mkko120.</p>
-                    <p>computer science student at day, developer at night</p>
+                    <p>computer science student by day, developer at night</p>
                     <p>my passion is to create software for people with ideas in mind, that could revolutionize the world</p>
                 </div>
                 <div className={"mt-8"}>

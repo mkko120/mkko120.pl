@@ -11,11 +11,25 @@ const font = Prompt({
 });
 
 export const metadata: Metadata = {
-  title: {
+    title: {
       template: "%s | mkko120",
       default: "mkko120"
-  },
-  description: "hello! i'm mkko120 and this is my personal website, check it out!",
+    },
+    description: "hello! i'm mkko120 and this is my personal website, check it out!",
+    openGraph: {
+        title: "mkko120 | portfolio",
+        description: "hello! i'm mkko120 and this is my personal website, check it out!",
+        type: "website",
+        url: "https://mkko120.pl",
+        images: "https://mkko120.pl/me.png"
+    },
+    twitter: {
+        title: "mkko120 | portfolio",
+        description: "hello! i'm mkko120 and this is my personal website, check it out!",
+        card: "summary_large_image",
+        site: "https://mkko120.pl",
+        images: "https://mkko120.pl/me.png"
+    }
 };
 
 export default function RootLayout({
