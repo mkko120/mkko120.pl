@@ -1,6 +1,9 @@
 import HomeCard, {HomeCardProps} from "@/components/homeCard";
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
+import web from "@/../public/web.jpg";
+import sys from "@/../public/computer.jpg";
+import mcs from "@/../public/minecraft.jpg";
 
 export default function Home() {
     
@@ -8,7 +11,7 @@ export default function Home() {
         {
             title: "web development",
             color: "bg-cyan-800",
-            image: "/web.jpg",
+            image: web,
             children: (
                 <>
                     <p>As a website developer, and I specialize in Next.js, a framework for creating awesome client- and server-side web applications.</p>
@@ -20,7 +23,7 @@ export default function Home() {
         {
             title: "system administration",
             color: "bg-teal-800",
-            image: "/computer.jpg",
+            image: sys,
             children: (
                 <>
                 <p>As a system administrator, I take care of computer systems to keep them running smoothly.</p>
@@ -33,7 +36,7 @@ export default function Home() {
         {
             title: "minecraft servers & plugins",
             color: "bg-emerald-800",
-            image: "/minecraft.jpg",
+            image: mcs,
             children: (
                 <>
                     <p>As a Minecraft developer and server administrator, I&apos;m passionate about enhancing gameplay experiences by creating custom features, mini-games, and utilities within the Minecraft universe.</p>

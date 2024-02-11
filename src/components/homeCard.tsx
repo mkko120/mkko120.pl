@@ -8,16 +8,16 @@ export interface HomeCardProps {
     color: string;
     children: React.ReactNode;
     index?: number;
-    image?: string;
+    image?: any;
 }
 
 export function HomeCardComponent({title, color, children, image, index}: HomeCardProps) {
     return (
         <AccordionItem value={`${index?.toString()}`} className={cn(color, "min-h-40 relative")}>
-            <AccordionTrigger className={"text-[32px] min-h-40"}>
+            <AccordionTrigger className={"text-[32px] min-h-40 text-left"}>
                 {title}
             </AccordionTrigger>
-            <AccordionContent className={"text-lg lg:w-1/2"}>
+            <AccordionContent className={"text-lg text-justify lg:w-1/2"}>
                 {children}
             </AccordionContent>
             {image && <div className={`hidden absolute right-0 top-0 lg:flex items-center justify-center h-full overflow-clip max-w-hs`}>
