@@ -3,6 +3,7 @@ import { Prompt, } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import {SpeedInsights} from "@vercel/speed-insights/next";
 
 const font = Prompt({
   subsets: ["latin"],
@@ -30,6 +31,7 @@ export default function RootLayout({
           {children}
           <Footer />
       </main>
+      <SpeedInsights />
       </body>
     </html>
   );
