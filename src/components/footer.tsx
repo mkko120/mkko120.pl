@@ -12,8 +12,12 @@ export default function Footer(): React.ReactNode {
                 </Link></span>
             </div>
             <div className={"flex flex-row space-x-4"}>
-                <FaGithub size={"2rem"} />
-                <FaLinkedin size={"2rem"} />
+                <Link href={"https://github.com/mkko120"}>
+                    <FaGithub size={"2rem"} />
+                </Link>
+                <Link href={"https://www.linkedin.com/in/mkko120/"}>
+                    <FaLinkedin size={"2rem"} />
+                </Link>
             </div>
         </div>
     )
