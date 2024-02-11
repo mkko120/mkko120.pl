@@ -58,7 +58,7 @@ export default function Home() {
             <div className={"w-full flex flex-col items-center justify-center mt-32 mb-28"}>
                 <h2 className={"font-bold text-xl mb-4"}>interested in my services?</h2>
                 <Link href={"mailto:contact@mkko120.pl"}>
-                    <Button size={"lg"}>contact me</Button>
+                    <Button size={"lg"} className={"font-semibold text-lg"}>contact me</Button>
                 </Link>
             </div>
         </div>

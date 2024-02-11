@@ -40,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-      <main className={"w-dvw h-dvh bg-black text-white"}>
+      <main className={"min-w-dvw min-h-dvh w-full h-full bg-black text-white relative"}>
           <Navbar />
           {children}
           <Footer />
