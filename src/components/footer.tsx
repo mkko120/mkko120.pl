@@ -3,7 +3,7 @@ import {FaGithub, FaLinkedin} from "react-icons/fa6";
 
 export default function Footer(): React.ReactNode {
     return (
-        <div className={"w-dvw sticky bottom-0 left-0 flex flex-row items-center justify-between px-8 py-4 bg-black"}>
+        <div className={"w-dvw absolute bottom-0 left-0 flex flex-row items-center justify-between px-8 py-4 bg-black"}>
             <div>
                 <span>&copy; mkko120</span>
                 <span> | </span>
