@@ -10,13 +10,13 @@ interface PostProps {
     params: {postid: string }
 }
 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<any[]> {
     const posts = await getPostsMeta()
 
-    if (!posts) return null;
+    if (!posts) return [];
 
     return posts.map(post => ({
-        slug: post.id
+        postid: post.id
     }))
 }
 
@@ -33,7 +33,7 @@ export async function generateMetadata(
     }
     return {
         title: post.meta.title,
-        description: post.content.slice(0, 100) + "...",
+        description: post.content.toString().substring(0, 100) + "...",
         keywords: post.meta.tags,
         creator: "mkko120",
         openGraph: {
@@ -64,13 +64,13 @@ export default async function Post({ params: { postid } }: PostProps) {
                     <h6 className={"text-md font-bold"}>Tags: </h6>
                     [
                     {post.meta.tags.map(tag => (
-                        <>
-                            <Link href={`/blog/tag/${tag}`} key={tag}
+                        <span key={tag}>
+                            <Link href={`/blog/tag/${tag}`}
                                   className={"transition-all hover:font-semibold underline underline-offset-4"}>
                                 {tag}
                             </Link>
                             {post.meta.tags.indexOf(tag) === post.meta.tags.length - 1 ? "" : ", "}
-                        </>
+                        </span>
                     ))}
                     ]
                 </div>
