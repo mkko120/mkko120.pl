@@ -33,7 +33,6 @@ export async function generateMetadata(
     }
     return {
         title: post.meta.title,
-        description: post.content.toString().substring(0, 100) + "...",
         keywords: post.meta.tags,
         creator: "mkko120",
         openGraph: {
