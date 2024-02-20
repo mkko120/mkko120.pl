@@ -67,6 +67,7 @@ export async function getPostByName(name: string): Promise<BlogPost | undefined>
         meta: {
             id,
             title: frontmatter.title,
+            description: rawMdx.replace(/\n\t/g, " ").replace(/\W/g, "").substring(0, 100) + "...",
             date: new Date(frontmatter.date),
             tags: frontmatter.tags
         },
