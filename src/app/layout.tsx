@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import {SpeedInsights} from "@vercel/speed-insights/next";
+import React from "react";
 
 const font = Prompt({
   subsets: ["latin"],
