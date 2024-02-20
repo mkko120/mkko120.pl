@@ -1,23 +1,13 @@
-import {getPostByName, getPostsMeta} from "@/lib/posts";
+import {getPostByName} from "@/lib/posts";
 import {notFound} from "next/navigation";
 import "highlight.js/styles/an-old-hope.min.css"
 import Link from "next/link";
 import {Metadata} from "next";
 
-// export const revalidate = 1
+export const revalidate = 1
 
 interface PostProps {
     params: {postid: string }
-}
-
-export async function generateStaticParams(): Promise<any[]> {
-    const posts = await getPostsMeta()
-
-    if (!posts) return [];
-
-    return posts.map(post => ({
-        postid: post.id
-    }))
 }
 
 export async function generateMetadata(
@@ -56,6 +46,7 @@ export default async function Post({ params: { postid } }: PostProps) {
                 <h1 className={"text-5xl mt-4 font-bold"}>{post.meta.title}</h1>
                 <h4 className={"text-lg text-neutral-300"}>{post.meta.date.toLocaleDateString("en-GB")}</h4>
             </header>
+            {post.meta.description}
             <article className={"prose prose-invert"}>
                 {post.content}
             </article>

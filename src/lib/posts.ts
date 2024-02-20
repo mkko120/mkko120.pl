@@ -67,7 +67,20 @@ export async function getPostByName(name: string): Promise<BlogPost | undefined>
         meta: {
             id,
             title: frontmatter.title,
-            description: rawMdx.replace(/\n\t/g, " ").replace(/\W/g, "").substring(0, 100) + "...",
+            description: rawMdx
+                // remove frontmatter
+                .replace(/---\n([\s\S]*?)\n---/g, "")
+                // remove code blocks
+                .replace(/```.*?\n(.+)```/gs, "[...]")
+                // remove multiple newlines
+                .replace(/\n+/g, '\n')
+                .trim()
+                .replace(/[\n\t]/g, ". ")
+                // remove special markdown characters
+                .replace(/[^a-zA-Z0-9!?"_ ().\n\t]/g, "")
+                .substring(0, 100)
+                .trim()
+                + "...",
             date: new Date(frontmatter.date),
             tags: frontmatter.tags
         },

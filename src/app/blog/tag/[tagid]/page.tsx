@@ -1,4 +1,4 @@
-import {getPostByName, getPostsMeta} from "@/lib/posts";
+import {getPostsMeta} from "@/lib/posts";
 import Link from "next/link";
 import Post from "@/components/Post";
 import {Metadata} from "next";
@@ -9,18 +9,6 @@ interface TagProps {
     params: {
         tagid: string
     }
-}
-
-export async function generateStaticParams(): Promise<any[]> {
-    const posts = await getPostsMeta()
-    
-    if (!posts) return [];
-    
-    let tags = new Set<string>();
-    posts.forEach(post => post.tags.forEach(tag => tags.add(tag)))
-    return Array.from(tags).map(tag => ({
-        tagid: tag
-    }))
 }
 
 export async function generateMetadata(
@@ -48,9 +36,11 @@ export default async function Page({params: {tagid}}: TagProps) {
     
     if (!tagPosts.length) {
         return (
-            <div>
-                Sorry! No posts with such tag.
-                <Link href={"/blog"}>Return to posts list</Link>
+            <div className={"text-center"}>
+                <h2 className={"font-bold text-3xl"}>Sorry! No posts with such tag.</h2>
+                <p className={"text-2xl pt-4"}>
+                    <Link href={"/blog"} className={"transition-all hover:font-semibold hover:underline underline-offset-4"}>&lt;- Return to posts list</Link>
+                </p>
             </div>
         )
     }
