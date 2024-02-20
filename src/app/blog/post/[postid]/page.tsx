@@ -46,7 +46,6 @@ export default async function Post({ params: { postid } }: PostProps) {
                 <h1 className={"text-5xl mt-4 font-bold"}>{post.meta.title}</h1>
                 <h4 className={"text-lg text-neutral-300"}>{post.meta.date.toLocaleDateString("en-GB")}</h4>
             </header>
-            {post.meta.description}
             <article className={"prose prose-invert"}>
                 {post.content}
             </article>
