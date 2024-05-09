@@ -55,7 +55,7 @@ export default function Home() {
     return (
         <div className={"flex flex-col w-full"}>
             <HomeCard list={list} />
-            <div className={"w-full flex flex-col items-center justify-center mt-32 mb-28"}>
+            <div className={"w-full flex flex-col items-center justify-center mt-16"}>
                 <h2 className={"font-bold text-xl mb-4"}>interested in my services?</h2>
                 <Link href={"mailto:contact@mkko120.pl"}>
                     <Button size={"lg"} className={"font-semibold text-lg"}>contact me</Button>

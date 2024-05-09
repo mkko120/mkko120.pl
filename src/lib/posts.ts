@@ -12,14 +12,6 @@ const oc = new Octokit({
     user_agent: "mkko120.pl/0.0.1",
 })
 
-type Filetree = {
-    "tree": [
-        {
-            "path": string;
-        }
-    ]
-}
-
 export async function getPostByName(name: string): Promise<BlogPost | undefined> {
     const res: OctokitResponse<any> = await oc.request("GET /repos/{owner}/{repo}/contents/{path}", {
         owner: "mkko120",

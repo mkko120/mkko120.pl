@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import {SpeedInsights} from "@vercel/speed-insights/next";
 import React from "react";
+import {ThemeProvider} from "@/components/themeProvider";
 
 const font = Prompt({
   subsets: ["latin"],
@@ -12,6 +13,7 @@ const font = Prompt({
 });
 
 export const metadata: Metadata = {
+    metadataBase: new URL("https://mkko120.pl"),
     title: {
       template: "%s | mkko120",
       default: "mkko120"
@@ -42,9 +44,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={font.className}>
       <main className={"min-w-dvw min-h-dvh w-full h-full bg-black text-white relative"}>
-          <Navbar />
-          {children}
-          <Footer />
+          <ThemeProvider attribute={"class"} defaultTheme={"dark"}>
+              <Navbar />
+              {children}
+              <Footer />
+          </ThemeProvider>
       </main>
       <SpeedInsights />
       </body>

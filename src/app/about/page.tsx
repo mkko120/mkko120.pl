@@ -16,7 +16,7 @@ export const metadata = {
 export default function Page() {
     return (
         <div className={"p-8 text-2xl flex flex-col-reverse md:flex-row justify-between"}>
-            <div className={"md:w-1/2 flex flex-col justify-start"}>
+            <div className={"md:w-1/2 flex flex-col justify-start mb-16"}>
                 <div>
                     <h1 className={cn(font.className, "font-bold text-4xl")}>hello!</h1>
                     <p>i&apos;m mikołaj, also known as mkko120.</p>
