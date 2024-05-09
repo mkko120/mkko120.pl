@@ -10,8 +10,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     let tagmap: MetadataRoute.Sitemap | undefined;
     if (posts) {
         lastmod = posts.reduce((acc, post) => {
-            if (post.date > acc.date) return post
-            return acc
+            return post.date > acc.date ? post : acc;
         })
         postmap = posts?.map((post) => ({
             url: `https://mkko120.pl/blog/post/${post.id}`,

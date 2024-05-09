@@ -2,7 +2,7 @@ import {getPostsMeta} from "@/lib/posts";
 import Link from "next/link";
 import Post from "@/components/Post";
 
-export const revalidate = 1;
+export const revalidate = 3600;
 
 export default async function PostsList() {
     const posts = await getPostsMeta()
