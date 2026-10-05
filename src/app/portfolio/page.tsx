@@ -1,7 +1,7 @@
 import {getPortfolio} from "@/lib/portfolio";
 import PortfolioCardView from "@/components/porfolioCardView";
 
-export const revalidate= 3600;
+export const revalidate = 3600;
 
 
 export default async function Page() {
