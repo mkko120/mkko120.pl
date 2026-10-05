@@ -5,7 +5,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import {SpeedInsights} from "@vercel/speed-insights/next";
 import React from "react";
-import {ThemeProvider} from "@/components/themeProvider";
+import {ThemeProvider} from "next-themes";
 
 const font = Prompt({
   subsets: ["latin"],
@@ -41,10 +41,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={font.className}>
       <main className={"min-w-dvw min-h-dvh w-full h-full bg-black text-white relative"}>
-          <ThemeProvider attribute={"class"} defaultTheme={"dark"}>
+          <ThemeProvider defaultTheme={"dark"}>
               <Navbar />
               {children}
               <Footer />

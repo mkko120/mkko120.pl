@@ -1,7 +1,7 @@
 import {Accordion, AccordionItem, AccordionTrigger, AccordionContent} from "@/components/ui/accordion";
 import {cn} from "@/lib/utils";
 import Image from "next/image";
-import React, {useEffect, useRef} from "react";
+import React from "react";
 
 export interface HomeCardProps {
     title: string;
