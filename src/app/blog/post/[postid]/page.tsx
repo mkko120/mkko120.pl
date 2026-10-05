@@ -7,12 +7,13 @@ import {Metadata} from "next";
 export const revalidate = 1
 
 interface PostProps {
-    params: {postid: string }
+    params: Promise<{postid: string}>
 }
 
 export async function generateMetadata(
-    {params: {postid}}: PostProps,
+    {params}: PostProps,
 ): Promise<Metadata> {
+    const {postid} = await params
     const fileName = `${postid}.mdx`
     const post = await getPostByName(fileName)
     if (!post) return {
@@ -32,7 +33,9 @@ export async function generateMetadata(
     }
 }
 
-export default async function Post({ params: { postid } }: PostProps) {
+export default async function Post({ params }: PostProps) {
+    
+    const {postid} = await params
     
     const fileName = `${postid}.mdx`
     
