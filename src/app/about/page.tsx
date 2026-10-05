@@ -25,7 +25,8 @@ export default function Page() {
                 </div>
                 <div className={"mt-8"}>
                     <h1 className={cn(font.className, "font-bold text-3xl")}>skills:</h1>
-                    <p>Next.JS, Prisma, shadcn/ui, mantine ui;</p>
+                    <p>Next.JS, Prisma, shadcn/ui, mantine ui, tailwindcss;</p>
+                    <p>Golang, GORM, Wails3, Docker, traefik;</p>
                     <p>Ubuntu, Debian, AlmaLinux, Arch, Windows Server 2016;</p>
                     <p>Java, Spigot and Paper, Kotlin, Spring Boot Web;</p>
                 </div>
