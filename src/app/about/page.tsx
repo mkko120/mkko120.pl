@@ -2,13 +2,14 @@ import Image from "next/image";
 import me from "@/../public/me.png";
 import {Krona_One} from "next/font/google";
 import {cn} from "@/lib/utils";
+import {Metadata} from "next";
 
 const font = Krona_One({
     subsets: ["latin"],
     weight: ["400"]
 })
 
-export const metadata = {
+export const metadata: Metadata = {
     title: "about"
 }
 

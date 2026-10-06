@@ -1,7 +1,12 @@
 import PostsList from "@/components/PostsList";
 import {Suspense} from "react";
+import {Metadata} from "next";
 
-export const revalidate = 1;
+export const revalidate = 3600;
+
+export const metadata: Metadata = {
+    title: "blog"
+}
 
 export default function Page() {
     

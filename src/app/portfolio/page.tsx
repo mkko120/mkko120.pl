@@ -1,11 +1,12 @@
 import {getPortfolio} from "@/lib/portfolio";
 import PortfolioCardView from "@/components/porfolioCardView";
+import ArchivedPortfolioSection from "@/components/archivedPortfolioSection";
 import {Metadata} from "next";
 
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-    title: "portfolio | mkko120"
+    title: "portfolio"
 }
 
 export default async function Page() {
@@ -14,7 +15,7 @@ export default async function Page() {
     return (
         <div className="w-full pb-20 pt-4 px-4 md:px-8">
             <div className="max-w-7xl mx-auto text-center mb-10">
-                <h1 className="font-bold text-4xl md:text-5xl uppercase tracking-tight text-white mb-3">
+                <h1 className="font-bold text-4xl md:text-5xl lowercase tracking-tight text-white mb-3">
                     Portfolio
                 </h1>
                 <p className="text-neutral-400 text-base md:text-lg max-w-2xl mx-auto">
@@ -42,6 +43,9 @@ export default async function Page() {
                 cardData={portfolio.other}
                 accentColor="border-l-amber-400"
             />
+
+            {/* Default-closed Archived Repositories Section */}
+            <ArchivedPortfolioSection cardData={portfolio.archived} />
         </div>
     );
 }

@@ -64,6 +64,7 @@ async function getPublicRepos(): Promise<PortfolioEntry[]> {
                 url: r.html_url,
                 language: r.language || "Code",
                 stars: r.stargazers_count || 0,
+                isArchived: !!r.archived,
                 tags: r.language ? [r.language.toUpperCase()] : ["CODE"]
             }));
     } catch (_) {
@@ -110,13 +111,17 @@ export async function getPortfolio(): Promise<Portfolio> {
         // Fetch live GitHub user repos
         const githubRepos = await getPublicRepos();
 
-        // Categorize GitHub repos
+        // Split active repos vs archived repos
+        const activeGithubRepos = githubRepos.filter(r => !r.isArchived);
+        const archivedRepos = githubRepos.filter(r => r.isArchived);
+
+        // Categorize Active GitHub repos
         const webRepos: PortfolioEntry[] = [];
         const sysRepos: PortfolioEntry[] = [];
         const mcRepos: PortfolioEntry[] = [];
         const otherRepos: PortfolioEntry[] = [];
 
-        githubRepos.forEach(repo => {
+        activeGithubRepos.forEach(repo => {
             const nameLower = repo.name.toLowerCase();
             const descLower = (repo.content || "").toLowerCase();
             const langLower = (repo.language || "").toLowerCase();
@@ -133,11 +138,9 @@ export async function getPortfolio(): Promise<Portfolio> {
         });
 
         // Merge custom entries and GitHub repos (deduplicating by lowercased name)
-        const mergeCategory = (custom: PortfolioEntry[], fetched: PortfolioEntry[], fallback: PortfolioEntry[]): PortfolioEntry[] => {
+        const mergeCategory = (custom: PortfolioEntry[], fetched: PortfolioEntry[]): PortfolioEntry[] => {
             const map = new Map<string, PortfolioEntry>();
 
-            // Add fallback first
-            fallback.forEach(item => map.set(item.name.toLowerCase(), item));
             // Overwrite with live fetched GitHub repos
             fetched.forEach(item => map.set(item.name.toLowerCase(), item));
             // Overwrite with custom JSON entries
@@ -147,13 +150,14 @@ export async function getPortfolio(): Promise<Portfolio> {
         };
 
         return {
-            web: mergeCategory(customEntries.web, webRepos, []),
-            sys: mergeCategory(customEntries.sys, sysRepos, []),
-            mc: mergeCategory(customEntries.mc, mcRepos, []),
-            other: mergeCategory(customEntries.other, otherRepos, []),
+            web: mergeCategory(customEntries.web, webRepos),
+            sys: mergeCategory(customEntries.sys, sysRepos),
+            mc: mergeCategory(customEntries.mc, mcRepos),
+            other: mergeCategory(customEntries.other, otherRepos),
+            archived: archivedRepos.sort((a, b) => b.date.getTime() - a.date.getTime()),
         };
     } catch (_) {
-        return { web: [], sys: [], mc: [], other: [] };
+        return { web: [], sys: [], mc: [], other: [], archived: [] };
     }
 }
 

@@ -29,6 +29,7 @@ type PortfolioEntry = {
     tags?: string[];
     language?: string;
     stars?: number;
+    isArchived?: boolean;
 }
 
 type Portfolio = {
@@ -36,4 +37,5 @@ type Portfolio = {
     sys: PortfolioEntry[];
     mc: PortfolioEntry[];
     other: PortfolioEntry[];
+    archived: PortfolioEntry[];
 }
