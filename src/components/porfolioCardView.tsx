@@ -2,6 +2,12 @@ import React from "react";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
+import {Krona_One} from "next/font/google";
+
+const font = Krona_One({
+    subsets: ["latin"],
+    weight: ["400"]
+})
 
 interface PortfolioCardViewProps {
     title: string;
@@ -19,7 +25,7 @@ export default function PortfolioCardView({ title, cardData, accentColor = "bord
                 <span className="font-mono text-[10px] tracking-widest uppercase bg-white text-black px-2 py-0.5 font-bold">
                     {cardData.length} {cardData.length === 1 ? "PROJECT" : "PROJECTS"}
                 </span>
-                <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tight text-white">
+                <h2 className={cn(font.className, "text-2xl md:text-3xl font-bold uppercase tracking-tight text-white")}>
                     {title}
                 </h2>
             </div>

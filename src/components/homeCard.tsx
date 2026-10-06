@@ -4,6 +4,12 @@ import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import {Krona_One} from "next/font/google";
+
+const font = Krona_One({
+    subsets: ["latin"],
+    weight: ["400"]
+})
 
 export interface HomeCardProps {
     title: string;
@@ -13,11 +19,10 @@ export interface HomeCardProps {
     tags?: string[];
 }
 
-// Palette #2: Dark Obsidian with Cyan, Teal, and Emerald Accent Borders
 const PALETTE_ACCENTS = [
-    "bg-neutral-900 border-l-4 border-l-cyan-400 border-t border-r border-b border-neutral-800",
-    "bg-neutral-900 border-l-4 border-l-teal-400 border-t border-r border-b border-neutral-800",
-    "bg-neutral-900 border-l-4 border-l-emerald-400 border-t border-r border-b border-neutral-800"
+    "bg-zinc-950 border-l-4 border-l-cyan-400 border-t border-r border-b border-neutral-800",
+    "bg-zinc-950 border-l-4 border-l-teal-400 border-t border-r border-b border-neutral-800",
+    "bg-zinc-950 border-l-4 border-l-emerald-400 border-t border-r border-b border-neutral-800"
 ];
 
 export default function HomeCard({ list }: { list: HomeCardProps[] }) {
@@ -26,7 +31,7 @@ export default function HomeCard({ list }: { list: HomeCardProps[] }) {
     return (
         <div className="w-full overflow-hidden">
             {/* Fixed height container on desktop and mobile to prevent ANY layout jumping */}
-            <div className="w-full h-130 md:h-115 lg:h-110 flex flex-col lg:flex-row gap-3">
+            <div className="w-full h-160 lg:h-120 flex flex-col lg:flex-row gap-3">
                 {list.map((item, idx) => {
                     const isActive = activeHoverIndex === idx;
                     const cardColor = PALETTE_ACCENTS[idx % PALETTE_ACCENTS.length];
@@ -64,6 +69,7 @@ export default function HomeCard({ list }: { list: HomeCardProps[] }) {
                             {/* Main Title & Smooth Fade Text */}
                             <div className="z-10 space-y-3 my-auto overflow-hidden">
                                 <h3 className={cn(
+                                    font.className,
                                     "font-bold lowercase tracking-tight transition-all duration-300 wrap-break-word",
                                     isActive ? "text-2xl md:text-3xl lg:text-4xl" : "text-lg md:text-xl lg:text-2xl opacity-90"
                                 )}>

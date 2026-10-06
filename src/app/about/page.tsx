@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
     return (
-        <div className={"p-8 text-2xl flex flex-col-reverse md:flex-row justify-between"}>
+        <div className={"p-8 text-xl flex flex-col-reverse md:flex-row justify-between"}>
             <div className={"md:w-1/2 flex flex-col justify-start mb-16"}>
                 <div>
                     <h1 className={cn(font.className, "font-bold text-4xl")}>hello!</h1>
@@ -37,10 +37,13 @@ export default function Page() {
                     <p>INF.02;</p>
                     <p>more to go...</p>
                 </div>
-                <div className={"flex-grow"}/>
             </div>
             <div>
-                <Image src={me} alt={"me"}/>
+                <Image
+                    src={me}
+                    alt={"me"}
+                    className={"max-w-lg"}
+                />
             </div>
         </div>
     )
