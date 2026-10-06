@@ -52,12 +52,14 @@ export default function Home() {
     ];
     
     return (
-        <div className={"flex flex-col w-full"}>
-            <HomeCard list={list} />
-            <div className={"w-full flex flex-col items-center justify-center mt-16"}>
-                <h2 className={"font-bold text-xl mb-4"}>interested in my services?</h2>
+        <div className={"flex-1 flex flex-col justify-between w-full h-full py-2 px-8"}>
+            <div className={"flex-1 flex flex-col justify-center w-full my-auto"}>
+                <HomeCard list={list} />
+            </div>
+            <div className={"w-full flex flex-col items-center justify-center my-4 py-2"}>
+                <h2 className={"font-bold text-lg mb-2 uppercase tracking-wide text-neutral-300"}>interested in my services?</h2>
                 <Link href={"mailto:contact@mkko120.pl"}>
-                    <Button size={"lg"} className={"font-semibold text-lg"}>contact me</Button>
+                    <Button size={"lg"} className={"font-semibold text-base uppercase px-6 py-3 rounded-none bg-white text-black hover:bg-neutral-200 transition-all"}>contact me</Button>
                 </Link>
             </div>
         </div>
