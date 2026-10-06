@@ -17,37 +17,36 @@ export default function Home() {
             title: "web development",
             color: "bg-cyan-800",
             image: web,
+            tags: ["NEXT.JS 14", "TYPESCRIPT", "REACT", "TAILWIND CSS", "SEO & PERF"],
             children: (
-                <>
-                    <p>As a website developer, and I specialize in Next.js, a framework for creating awesome client- and server-side web applications.</p>
-                    <p>I enjoy developing sites that not only look great but also achieve high performance and smooth user experience.</p>
-                    <p>With Next.js, I can build fast-loading, SEO-friendly websites that are easy to use on any device.</p>
-                </>
+                <div className="space-y-3">
+                    <p>Building high-performance, responsive web applications with <strong className="text-white">Next.js</strong>, <strong className="text-white">React</strong>, and <strong className="text-white">TypeScript</strong>.</p>
+                    <p>Focusing on clean component architecture, optimal Core Web Vitals, accessible UI, and modern server-side rendering patterns.</p>
+                </div>
             )
         },
         {
             title: "system administration",
             color: "bg-teal-800",
             image: sys,
+            tags: ["LINUX (DEBIAN/UBUNTU)", "DOCKER", "NGINX", "WINDOWS SERVER", "SECURITY"],
             children: (
-                <>
-                <p>As a system administrator, I take care of computer systems to keep them running smoothly.</p>
-                <p>From setting up networks to fixing problems and making sure everything is safe from outside threats, I handle it all.</p>
-                <p>I excel in finding ways to make things run better and faster, so businesses can focus on what they do best.</p>
-                <p>My experience ranges from various Linux distributions to Windows Server instances.</p>
-                </>
+                <div className="space-y-3">
+                    <p>Managing system infrastructure, network services, and server security to maintain high uptime and operational stability.</p>
+                    <p>Hands-on experience configuring Linux distributions, Windows Server environments, Docker containerization, and reverse proxy routing.</p>
+                </div>
             )
         },
         {
-            title: "minecraft servers & plugins",
+            title: "minecraft & backend systems",
             color: "bg-emerald-800",
             image: mcs,
+            tags: ["JAVA", "KOTLIN", "SPIGOT/PAPER", "HIGH CONCURRENCY", "MYSQL"],
             children: (
-                <>
-                    <p>As a Minecraft developer and server administrator, I&apos;m passionate about enhancing gameplay experiences by creating custom features, mini-games, and utilities within the Minecraft universe.</p>
-                    <p>As a server administrator, I ensure optimal server performance, manage player communities, and troubleshoot technical issues to maintain a seamless gaming environment.</p>
-                    <p>From crafting unique worlds to fine-tuning server configurations, I&apos;m dedicated to delivering top-notch experiences for Minecraft enthusiasts.</p>
-                </>
+                <div className="space-y-3">
+                    <p>Engineering custom backend server plugins, event-driven architectures, and performance-tuned utilities for game environments.</p>
+                    <p>Specializing in JVM memory management, low-latency packet processing, and maintaining smooth operations under high concurrent player loads.</p>
+                </div>
             )
         }
     ];
