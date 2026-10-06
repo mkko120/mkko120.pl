@@ -21,7 +21,7 @@ export function HomeCardComponent({title, color, children, image, index}: HomeCa
                 {children}
             </AccordionContent>
             {image && <div className={`hidden absolute right-0 top-0 lg:flex items-center justify-center h-full overflow-clip max-w-hs`}>
-                <Image src={image} alt={""} height={1000} width={1000} />
+                <Image src={image} alt={""} height={1000} width={1000} loading={"eager"}/>
             </div> }
         </AccordionItem>
     );
