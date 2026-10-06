@@ -7,7 +7,6 @@ import { ArrowRight } from "lucide-react";
 
 export interface HomeCardProps {
     title: string;
-    color: string;
     children: React.ReactNode;
     index?: number;
     image?: any;
@@ -27,7 +26,7 @@ export default function HomeCard({ list }: { list: HomeCardProps[] }) {
     return (
         <div className="w-full overflow-hidden">
             {/* Fixed height container on desktop and mobile to prevent ANY layout jumping */}
-            <div className="w-full h-[520px] md:h-[460px] lg:h-[440px] flex flex-col lg:flex-row gap-3">
+            <div className="w-full h-130 md:h-115 lg:h-110 flex flex-col lg:flex-row gap-3">
                 {list.map((item, idx) => {
                     const isActive = activeHoverIndex === idx;
                     const cardColor = PALETTE_ACCENTS[idx % PALETTE_ACCENTS.length];
@@ -40,7 +39,7 @@ export default function HomeCard({ list }: { list: HomeCardProps[] }) {
                             className={cn(
                                 cardColor,
                                 "relative h-full transition-all duration-500 ease-in-out cursor-pointer overflow-hidden p-5 md:p-6 flex flex-col justify-between shrink-0",
-                                isActive ? "flex-[3] lg:flex-[3]" : "flex-1 lg:flex-1 hover:brightness-110"
+                                isActive ? "flex-3 lg:flex-3" : "flex-1 lg:flex-1 hover:brightness-110"
                             )}
                         >
                             {/* Header / Index & Tech Tags */}
@@ -65,7 +64,7 @@ export default function HomeCard({ list }: { list: HomeCardProps[] }) {
                             {/* Main Title & Smooth Fade Text */}
                             <div className="z-10 space-y-3 my-auto overflow-hidden">
                                 <h3 className={cn(
-                                    "font-bold uppercase tracking-tight transition-all duration-300 break-words",
+                                    "font-bold lowercase tracking-tight transition-all duration-300 wrap-break-word",
                                     isActive ? "text-2xl md:text-3xl lg:text-4xl" : "text-lg md:text-xl lg:text-2xl opacity-90"
                                 )}>
                                     {item.title}
@@ -73,7 +72,7 @@ export default function HomeCard({ list }: { list: HomeCardProps[] }) {
 
                                 <div
                                     className={cn(
-                                        "transition-all duration-500 ease-out text-sm md:text-base text-justify text-neutral-200 max-w-xl space-y-2",
+                                        "transition-all duration-500 ease-out text-sm md:text-base text-justify text-neutral-200 max-w-xl space-y-2 lowercase",
                                         isActive
                                             ? "opacity-100 translate-y-0 pointer-events-auto block"
                                             : "opacity-0 translate-y-3 pointer-events-none hidden lg:block"
@@ -101,13 +100,14 @@ export default function HomeCard({ list }: { list: HomeCardProps[] }) {
                                         isActive ? "opacity-30 hover:opacity-45" : "opacity-10"
                                     )}
                                 >
-                                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/40 to-black/90 z-10" />
+                                    <div className="absolute inset-0 bg-linear-to-r from-transparent via-black/40 to-black/90 z-10" />
                                     <Image
                                         src={item.image}
                                         alt={item.title}
                                         fill
                                         sizes="(max-width: 1200px) 50vw, 33vw"
                                         className="object-cover object-center"
+                                        loading={"eager"}
                                     />
                                 </div>
                             )}

@@ -15,9 +15,8 @@ export default function Home() {
     const list: HomeCardProps[] = [
         {
             title: "web development",
-            color: "bg-cyan-800",
             image: web,
-            tags: ["NEXT.JS 14", "TYPESCRIPT", "REACT", "TAILWIND CSS", "SEO & PERF"],
+            tags: ["NEXT.JS", "TYPESCRIPT", "REACT", "TAILWIND CSS", "SEO & PERF"],
             children: (
                 <div className="space-y-3">
                     <p>Building high-performance, responsive web applications with <strong className="text-white">Next.js</strong>, <strong className="text-white">React</strong>, and <strong className="text-white">TypeScript</strong>.</p>
@@ -27,9 +26,8 @@ export default function Home() {
         },
         {
             title: "system administration",
-            color: "bg-teal-800",
             image: sys,
-            tags: ["LINUX (DEBIAN/UBUNTU)", "DOCKER", "NGINX", "WINDOWS SERVER", "SECURITY"],
+            tags: ["LINUX", "DOCKER", "NGINX", "WINDOWS SERVER", "SECURITY"],
             children: (
                 <div className="space-y-3">
                     <p>Managing system infrastructure, network services, and server security to maintain high uptime and operational stability.</p>
@@ -39,7 +37,6 @@ export default function Home() {
         },
         {
             title: "minecraft & backend systems",
-            color: "bg-emerald-800",
             image: mcs,
             tags: ["JAVA", "KOTLIN", "SPIGOT/PAPER", "HIGH CONCURRENCY", "MYSQL"],
             children: (

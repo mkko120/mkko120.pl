@@ -1,8 +1,12 @@
 import {getPortfolio} from "@/lib/portfolio";
 import PortfolioCardView from "@/components/porfolioCardView";
+import {Metadata} from "next";
 
 export const revalidate = 3600;
 
+export const metadata: Metadata = {
+    title: "portfolio | mkko120"
+}
 
 export default async function Page() {
     const portfolio = await getPortfolio()
