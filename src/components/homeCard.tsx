@@ -14,87 +14,23 @@ export interface HomeCardProps {
     tags?: string[];
 }
 
-// 5 Color Palette Presets for the 3 columns
-const COLOR_PALETTES = [
-    {
-        name: "1. Monochromatyczny Grafit",
-        colors: [
-            "bg-neutral-900 border border-neutral-700",
-            "bg-zinc-800 border border-zinc-600",
-            "bg-neutral-800 border border-neutral-600"
-        ]
-    },
-    {
-        name: "2. Dark + Kolorowy Akcent",
-        colors: [
-            "bg-neutral-900 border-l-4 border-l-cyan-400 border-t border-r border-b border-neutral-800",
-            "bg-neutral-900 border-l-4 border-l-teal-400 border-t border-r border-b border-neutral-800",
-            "bg-neutral-900 border-l-4 border-l-emerald-400 border-t border-r border-b border-neutral-800"
-        ]
-    },
-    {
-        name: "3. Granat & Midnight",
-        colors: [
-            "bg-slate-900 border border-slate-700",
-            "bg-indigo-950 border border-indigo-800",
-            "bg-zinc-900 border border-zinc-700"
-        ]
-    },
-    {
-        name: "4. Ciepłe Ziemiste (Ochre/Amber)",
-        colors: [
-            "bg-stone-900 border border-stone-700",
-            "bg-amber-950 border border-amber-900",
-            "bg-neutral-900 border border-neutral-700"
-        ]
-    },
-    {
-        name: "5. Klasyczny Nasycony (Cyan / Teal / Emerald)",
-        colors: [
-            "bg-cyan-800",
-            "bg-teal-800",
-            "bg-emerald-800"
-        ]
-    }
+// Palette #2: Dark Obsidian with Cyan, Teal, and Emerald Accent Borders
+const PALETTE_ACCENTS = [
+    "bg-neutral-900 border-l-4 border-l-cyan-400 border-t border-r border-b border-neutral-800",
+    "bg-neutral-900 border-l-4 border-l-teal-400 border-t border-r border-b border-neutral-800",
+    "bg-neutral-900 border-l-4 border-l-emerald-400 border-t border-r border-b border-neutral-800"
 ];
 
 export default function HomeCard({ list }: { list: HomeCardProps[] }) {
-    const [paletteIndex, setPaletteIndex] = useState<number>(0);
     const [activeHoverIndex, setActiveHoverIndex] = useState<number>(0);
-
-    const currentPalette = COLOR_PALETTES[paletteIndex];
 
     return (
         <div className="w-full flex flex-col space-y-6">
-            {/* Color Palette Picker Control Bar */}
-            <div className="w-full bg-neutral-950 border border-neutral-800 p-3 flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
-                <div className="flex items-center space-x-2 font-mono uppercase text-neutral-400">
-                    <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-                    <span>TESTUJ PALETĘ KOLORÓW:</span>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                    {COLOR_PALETTES.map((p, pIdx) => (
-                        <button
-                            key={pIdx}
-                            onClick={() => setPaletteIndex(pIdx)}
-                            className={cn(
-                                "px-3 py-1.5 font-mono uppercase text-xs transition-all border",
-                                paletteIndex === pIdx
-                                    ? "bg-white text-black border-white font-bold"
-                                    : "bg-black text-neutral-300 border-neutral-700 hover:border-neutral-500"
-                            )}
-                        >
-                            {p.name}
-                        </button>
-                    ))}
-                </div>
-            </div>
-
             {/* Horizontal Accordion Layout */}
             <div className="w-full min-h-[520px] flex flex-col lg:flex-row gap-3">
                 {list.map((item, idx) => {
                     const isActive = activeHoverIndex === idx;
-                    const cardColor = currentPalette.colors[idx % currentPalette.colors.length];
+                    const cardColor = PALETTE_ACCENTS[idx % PALETTE_ACCENTS.length];
 
                     return (
                         <div
