@@ -80,15 +80,12 @@ export default function HomeCard({ list }: { list: HomeCardProps[] }) {
                                 </div>
                             </div>
 
-                            {/* Footer / Click State Indicator */}
-                            <div className="z-10 flex items-center justify-between w-full pt-3 border-t border-white/10">
-                                <span className="text-[11px] uppercase font-mono tracking-widest text-neutral-300">
-                                    {isActive ? "SEKCJA AKTYWNA" : "KLIKNIJ ABY ROZWINĄĆ"}
-                                </span>
+                            {/* Minimalist Bottom Indicator */}
+                            <div className="z-10 flex items-center justify-end w-full pt-3 border-t border-white/10">
                                 <ArrowRight
                                     className={cn(
-                                        "w-4 h-4 md:w-5 md:h-5 transition-transform duration-300",
-                                        isActive ? "translate-x-1" : "-rotate-45 opacity-60"
+                                        "w-5 h-5 transition-all duration-300",
+                                        isActive ? "translate-x-1 opacity-100 text-white" : "-rotate-45 opacity-40 text-neutral-400"
                                     )}
                                 />
                             </div>
