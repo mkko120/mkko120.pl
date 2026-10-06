@@ -25,9 +25,9 @@ export default function HomeCard({ list }: { list: HomeCardProps[] }) {
     const [activeHoverIndex, setActiveHoverIndex] = useState<number>(0);
 
     return (
-        <div className="w-full">
+        <div className="w-full overflow-hidden">
             {/* Fixed height container on desktop and mobile to prevent ANY layout jumping */}
-            <div className="w-full h-[540px] md:h-[480px] lg:h-[460px] flex flex-col lg:flex-row gap-3">
+            <div className="w-full h-[520px] md:h-[460px] lg:h-[440px] flex flex-col lg:flex-row gap-3">
                 {list.map((item, idx) => {
                     const isActive = activeHoverIndex === idx;
                     const cardColor = PALETTE_ACCENTS[idx % PALETTE_ACCENTS.length];
@@ -39,21 +39,21 @@ export default function HomeCard({ list }: { list: HomeCardProps[] }) {
                             onClick={() => setActiveHoverIndex(idx)}
                             className={cn(
                                 cardColor,
-                                "relative h-full transition-all duration-500 ease-in-out cursor-pointer overflow-hidden p-5 md:p-7 flex flex-col justify-between",
+                                "relative h-full transition-all duration-500 ease-in-out cursor-pointer overflow-hidden p-5 md:p-6 flex flex-col justify-between shrink-0",
                                 isActive ? "flex-[3] lg:flex-[3]" : "flex-1 lg:flex-1 hover:brightness-110"
                             )}
                         >
                             {/* Header / Index & Tech Tags */}
-                            <div className="flex items-start justify-between w-full z-10">
-                                <span className="font-mono text-lg md:text-xl lg:text-2xl font-bold opacity-80">
+                            <div className="flex items-start justify-between w-full z-10 shrink-0">
+                                <span className="font-mono text-lg md:text-xl lg:text-2xl font-bold opacity-80 shrink-0">
                                     0{idx + 1} /
                                 </span>
-                                {item.tags && (
-                                    <div className={cn("flex flex-wrap gap-1.5 max-w-[70%] transition-opacity duration-300", !isActive && "hidden lg:flex opacity-60")}>
-                                        {item.tags.slice(0, isActive ? 5 : 2).map((tag, tIdx) => (
+                                {item.tags && isActive && (
+                                    <div className="flex flex-wrap gap-1.5 max-w-[75%] transition-opacity duration-300">
+                                        {item.tags.map((tag, tIdx) => (
                                             <span
                                                 key={tIdx}
-                                                className="font-mono text-[10px] tracking-wider uppercase bg-black/50 border border-white/20 px-2 py-0.5 text-white"
+                                                className="font-mono text-[10px] tracking-wider uppercase bg-black/60 border border-white/20 px-2 py-0.5 text-white shrink-0"
                                             >
                                                 {tag}
                                             </span>
@@ -63,14 +63,17 @@ export default function HomeCard({ list }: { list: HomeCardProps[] }) {
                             </div>
 
                             {/* Main Title & Smooth Fade Text */}
-                            <div className="z-10 space-y-3 my-auto">
-                                <h3 className="text-xl md:text-2xl lg:text-3xl font-bold uppercase tracking-tight">
+                            <div className="z-10 space-y-3 my-auto overflow-hidden">
+                                <h3 className={cn(
+                                    "font-bold uppercase tracking-tight transition-all duration-300 break-words",
+                                    isActive ? "text-2xl md:text-3xl lg:text-4xl" : "text-lg md:text-xl lg:text-2xl opacity-90"
+                                )}>
                                     {item.title}
                                 </h3>
 
                                 <div
                                     className={cn(
-                                        "transition-all duration-500 ease-out text-sm md:text-base lg:text-lg text-justify text-neutral-200 max-w-xl space-y-2.5",
+                                        "transition-all duration-500 ease-out text-sm md:text-base text-justify text-neutral-200 max-w-xl space-y-2",
                                         isActive
                                             ? "opacity-100 translate-y-0 pointer-events-auto block"
                                             : "opacity-0 translate-y-3 pointer-events-none hidden lg:block"
@@ -81,11 +84,11 @@ export default function HomeCard({ list }: { list: HomeCardProps[] }) {
                             </div>
 
                             {/* Minimalist Bottom Indicator */}
-                            <div className="z-10 flex items-center justify-end w-full pt-3 border-t border-white/10">
+                            <div className="z-20 flex items-center justify-end w-full pt-3 shrink-0 border-t border-white/10 mt-auto">
                                 <ArrowRight
                                     className={cn(
-                                        "w-5 h-5 transition-all duration-300",
-                                        isActive ? "translate-x-1 opacity-100 text-white" : "-rotate-45 opacity-40 text-neutral-400"
+                                        "w-5 h-5 transition-all duration-300 shrink-0",
+                                        isActive ? "translate-x-1 opacity-100 text-white" : "-rotate-45 opacity-60 text-neutral-300"
                                     )}
                                 />
                             </div>
