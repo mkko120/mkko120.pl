@@ -1,21 +1,58 @@
 import {getPortfolio} from "@/lib/portfolio";
 import PortfolioCardView from "@/components/porfolioCardView";
+import ArchivedPortfolioSection from "@/components/archivedPortfolioSection";
+import {Metadata} from "next";
+import {Krona_One} from "next/font/google";
+import {cn} from "@/lib/utils";
+
+const font = Krona_One({
+    subsets: ["latin"],
+    weight: ["400"]
+})
 
 export const revalidate = 3600;
 
+export const metadata: Metadata = {
+    title: "portfolio"
+}
 
 export default async function Page() {
-    const portfolio = await getPortfolio()
-    if (!portfolio) return <div>error</div>
+    const portfolio = await getPortfolio();
     
     return (
-        <div className={"pb-16"}>
-            <h1 className={"w-fit mx-auto font-bold text-4xl mt-8 mb-4"}>portfolio</h1>
-            <h2 className={"w-fit mx-auto text-xl mb-8 mt-4 px-8 text-center"}>if you want to check out some of the projects, visit my github page!</h2>
-            <PortfolioCardView title={"web development"} cardData={portfolio.web}/>
-            <PortfolioCardView title={"system administration"} cardData={portfolio.sys}/>
-            <PortfolioCardView title={"minecraft"} cardData={portfolio.mc}/>
-            <PortfolioCardView title={"other"} cardData={portfolio.other}/>
+        <div className="w-full pb-20 pt-4 px-4 md:px-8">
+            <div className="max-w-7xl mx-auto text-center mb-10">
+                <h1 className={cn(font.className, "font-bold text-4xl md:text-5xl lowercase tracking-tight text-white mb-3")}>
+                    Portfolio
+                </h1>
+                <p className="text-neutral-400 text-base md:text-lg max-w-2xl mx-auto">
+                    Explore my featured projects, open-source repositories, and system engineering work.
+                </p>
+            </div>
+
+            <PortfolioCardView
+                title="Web Development"
+                cardData={portfolio.web}
+                accentColor="border-l-cyan-400"
+            />
+            <PortfolioCardView
+                title="System Administration & Infrastructure"
+                cardData={portfolio.sys}
+                accentColor="border-l-teal-400"
+            />
+            <PortfolioCardView
+                title="Minecraft & Backend Systems"
+                cardData={portfolio.mc}
+                accentColor="border-l-emerald-400"
+            />
+            <PortfolioCardView
+                title="Other Projects"
+                cardData={portfolio.other}
+                accentColor="border-l-amber-400"
+            />
+
+            {/* Default-closed Archived Repositories Section */}
+            <ArchivedPortfolioSection cardData={portfolio.archived} />
         </div>
-    )
+    );
 }

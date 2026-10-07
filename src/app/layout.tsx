@@ -43,10 +43,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={font.className}>
-      <main className={"min-w-dvw min-h-dvh w-full h-full bg-black text-white relative"}>
+      <main className={"min-h-screen w-full bg-black text-white flex flex-col justify-between relative overflow-x-hidden"}>
           <ThemeProvider defaultTheme={"dark"}>
               <Navbar />
-              {children}
+              <div className="flex-1 w-full">{children}</div>
               <Footer />
           </ThemeProvider>
       </main>

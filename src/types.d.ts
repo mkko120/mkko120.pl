@@ -25,11 +25,17 @@ type PortfolioEntry = {
     content: string;
     source: string;
     date: Date;
+    url?: string;
+    tags?: string[];
+    language?: string;
+    stars?: number;
+    isArchived?: boolean;
 }
 
 type Portfolio = {
-    web: PortolioEntry[];
-    sys: PortolioEntry[];
-    mc: PortolioEntry[];
-    other: PortolioEntry[];
+    web: PortfolioEntry[];
+    sys: PortfolioEntry[];
+    mc: PortfolioEntry[];
+    other: PortfolioEntry[];
+    archived: PortfolioEntry[];
 }

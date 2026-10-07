@@ -2,20 +2,21 @@ import Image from "next/image";
 import me from "@/../public/me.png";
 import {Krona_One} from "next/font/google";
 import {cn} from "@/lib/utils";
+import {Metadata} from "next";
 
 const font = Krona_One({
     subsets: ["latin"],
     weight: ["400"]
 })
 
-export const metadata = {
+export const metadata: Metadata = {
     title: "about"
 }
 
 
 export default function Page() {
     return (
-        <div className={"p-8 text-2xl flex flex-col-reverse md:flex-row justify-between"}>
+        <div className={"p-8 text-xl flex flex-col-reverse md:flex-row justify-between"}>
             <div className={"md:w-1/2 flex flex-col justify-start mb-16"}>
                 <div>
                     <h1 className={cn(font.className, "font-bold text-4xl")}>hello!</h1>
@@ -36,10 +37,13 @@ export default function Page() {
                     <p>INF.02;</p>
                     <p>more to go...</p>
                 </div>
-                <div className={"flex-grow"}/>
             </div>
-            <div>
-                <Image src={me} alt={"me"}/>
+            <div className={"flex justify-center md:w-1/2"}>
+                <Image
+                    src={me}
+                    alt={"me"}
+                    className={"not-md:max-w-75 md:max-w-lg w-full h-auto"}
+                />
             </div>
         </div>
     )
