@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { ExternalLink } from "lucide-react";
+import {ComponentIcon, ExternalLink} from "lucide-react";
 import { cn } from "@/lib/utils";
 import {Krona_One} from "next/font/google";
 
@@ -22,10 +22,10 @@ export default function PortfolioCardView({ title, cardData, accentColor = "bord
         <div className="w-full max-w-7xl mx-auto flex flex-col p-6 my-6">
             {/* Category Header */}
             <div className="flex items-center space-x-3 mb-6 pb-2 border-b border-neutral-800">
-                <span className="font-mono text-[10px] tracking-widest uppercase bg-white text-black px-2 py-0.5 font-bold">
-                    {cardData.length} {cardData.length === 1 ? "PROJECT" : "PROJECTS"}
+                <span className="font-mono not-md:text-md md:text-[10px] tracking-widest uppercase bg-white text-black px-2 py-0.5 font-bold flex flex-row items-center">
+                    {cardData.length}&nbsp;<span className={"not-md:hidden"}>{cardData.length === 1 ? "PROJECT" : "PROJECTS"}</span><span className={"md:hidden"}><ComponentIcon size={16}/></span>
                 </span>
-                <h2 className={cn(font.className, "text-2xl md:text-3xl font-bold uppercase tracking-tight text-white")}>
+                <h2 className={cn(font.className, "text-xl md:text-3xl font-bold uppercase tracking-tight text-white")}>
                     {title}
                 </h2>
             </div>
@@ -34,7 +34,7 @@ export default function PortfolioCardView({ title, cardData, accentColor = "bord
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {cardData.map((entry) => {
                     const formattedDate = entry.date && !isNaN(entry.date.getTime())
-                        ? entry.date.toLocaleDateString("en-US", { year: 'numeric', month: 'short' })
+                        ? entry.date.toLocaleDateString("pl-PL", { year: 'numeric', month: 'numeric' })
                         : "2024";
 
                     return (

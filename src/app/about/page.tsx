@@ -38,11 +38,11 @@ export default function Page() {
                     <p>more to go...</p>
                 </div>
             </div>
-            <div>
+            <div className={"flex justify-center md:w-1/2"}>
                 <Image
                     src={me}
                     alt={"me"}
-                    className={"max-w-lg"}
+                    className={"not-md:max-w-75 md:max-w-lg w-full h-auto"}
                 />
             </div>
         </div>

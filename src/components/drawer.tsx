@@ -23,10 +23,18 @@ export default function NavDrawer() {
               <div className="max-w-md mx-4">
                 <Drawer.Title className="font-medium mb-8 text-center text-xl">navigation menu</Drawer.Title>
                 <div className={"w-full flex flex-col  space-y-8"}>
-                  <Link href={"/"} className={"flex-2 hover:underline underline-offset-8"}>home</Link>
-                  <Link href={"/portfolio"} className={"hover:underline underline-offset-8"}>portfolio</Link>
-                  <Link href={"/blog"} className={"hover:underline underline-offset-8"}>blog</Link>
-                  <Link href={"/about"} className={"hover:underline underline-offset-8"}>about</Link>
+                  <Drawer.Close asChild>
+                    <Link href={"/"} className={"flex-2 hover:underline underline-offset-8"}>home</Link>
+                  </Drawer.Close>
+                  <Drawer.Close asChild>
+                    <Link href={"/portfolio"} className={"hover:underline underline-offset-8"}>portfolio</Link>
+                  </Drawer.Close>
+                  <Drawer.Close asChild>
+                    <Link href={"/blog"} className={"hover:underline underline-offset-8"}>blog</Link>
+                  </Drawer.Close>
+                  <Drawer.Close asChild>
+                    <Link href={"/about"} className={"hover:underline underline-offset-8"}>about</Link>
+                  </Drawer.Close>
                 </div>
               </div>
               

@@ -31,7 +31,7 @@ export default function HomeCard({ list }: { list: HomeCardProps[] }) {
     return (
         <div className="w-full overflow-hidden">
             {/* Fixed height container on desktop and mobile to prevent ANY layout jumping */}
-            <div className="w-full h-160 lg:h-120 flex flex-col lg:flex-row gap-3">
+            <div className="w-full min-h-160 h-fit lg:min-h-120 lg:h-120 flex flex-col lg:flex-row gap-3">
                 {list.map((item, idx) => {
                     const isActive = activeHoverIndex === idx;
                     const cardColor = PALETTE_ACCENTS[idx % PALETTE_ACCENTS.length];
@@ -67,7 +67,7 @@ export default function HomeCard({ list }: { list: HomeCardProps[] }) {
                             </div>
 
                             {/* Main Title & Smooth Fade Text */}
-                            <div className="z-10 space-y-3 my-auto overflow-hidden">
+                            <div className="z-10 py-3 space-y-3 my-auto overflow-hidden">
                                 <h3 className={cn(
                                     font.className,
                                     "font-bold lowercase tracking-tight transition-all duration-300 wrap-break-word",
