@@ -12,7 +12,7 @@ export default function Navbar() {
     
     return (
         <div className={"w-full flex flex-row items-center justify-between p-8 space-y-4"}>
-            <div className={"flex flex-col items-start justify-start font-bold text-5xl " + font.className}>
+            <div className={"flex flex-col items-start justify-start font-bold text-3xl md:text-5xl " + font.className}>
                 <span>MIKOŁAJ</span>
                 <span>RATAJCZAK</span>
             </div>
